@@ -14,7 +14,7 @@ function tableForItems() {
     var tableBody = '';
 
     for (var i=0; i<numberOfObjects; i++) {
-        tableBody += '<tbody><tr><td>' + i + '</td>';
+        tableBody += `<tbody><tr><td> ${i+1} </td>`;
         for (var j=0; j<2; j++) {
             tableBody += '<td>\
                         <input class="item" type="number" placeholder="value"\

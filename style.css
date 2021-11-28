@@ -7,6 +7,7 @@ body {
     color: white;
     font: 1.3rem Inconsolata, monospace;
     text-shadow: 0 0 5px #C8C8C8;
+    text-align: center;
 }
 
 ::selection {
@@ -19,6 +20,10 @@ body {
 }
 
 .problem-initialisation {
+    text-align: center;
+}
+
+.table-objects {
     text-align: center;
 }
 
@@ -178,7 +183,7 @@ body {
 .solve:before {
   background-color: rgba(249, 58, 19, .32);
   content: "";
-  display: block;
+  display: table;
   height: 100%;
   left: 0;
   overflow: hidden;
