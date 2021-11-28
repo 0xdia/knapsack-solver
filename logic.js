@@ -55,6 +55,17 @@ function solve() {
 }
 
 function knapsack(Capacity, weights, profits) {
+/*     var animtableHeader = '<table class="animated-solution" id="table" align="center"><tr>\
+                        <th scope="col"></th>';
+
+    for (let i=0; i<=Capacity; i++)
+        animtableHeader += `<th scope="col">${i}</th>`
+    animtableHeader += '</tr>';
+
+    var tableBody = '';
+    var animtableFooter = '</table>' */
+
+
     var dp = [];
     var subsol = [];
     
@@ -96,8 +107,14 @@ function knapsack(Capacity, weights, profits) {
         }
     }
 
-    document.getElementById('solution').innerHTML = `<h2> ${dp[numberOfObjects][Capacity]} </h2>` +
-                             `<h2> ${subsol[numberOfObjects][Capacity]} </h2> `;
+    var t =  `<h2> Gain maximum: ${dp[numberOfObjects][Capacity]} </h2> <br>`;
+    t += '<h2> Les objets a choisir: </h2>'
+
+    for (let i=0; i<subsol[numberOfObjects][Capacity].length; i++)
+        t += `<button class="animated-solution" type="button">${subsol[numberOfObjects][Capacity][i]}</button>  `;
+    
+    document.getElementById('solution').innerHTML = t;
+
     console.log(dp);
     console.log(subsol);
     console.log("solution: ", dp[numberOfObjects][Capacity]);
