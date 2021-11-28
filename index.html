@@ -6,6 +6,7 @@
     <title> Problème du sac à dos  </title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="./logic.js"></script>
 </head>
 
 <body>
@@ -22,13 +23,17 @@
         </h3>
     </div>
 
-    <div class="problem-initialisation">
+    <div class="problem-initialisation" id="problem-initialisation">
         <input type="number" id="capacity" placeholder="Entrer la capacite du sac a dos">
-        <input type="number" id="nbr_objets" placeholder="Entrer le nombre d'objets">
+        <input type="number" id="nbr_objects" placeholder="Entrer le nombre d'objets">
 
-        <button type="button"> Commencer a inserer les objets </button>
+        <button type="button" onclick="prepareSecondSection();"> Commencer a inserer les objets </button>
     </div>
 
+    <div id="table-objects"></div>
+    
+    <div id="solve-button"></div>
+   
 </body>
 
 </html>
