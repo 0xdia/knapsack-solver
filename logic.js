@@ -107,12 +107,13 @@ function knapsack(Capacity, weights, profits) {
         }
     }
 
-    var t =  `<h2> Gain maximum: ${dp[numberOfObjects][Capacity]} </h2> <br>`;
-    t += '<h2> Les objets a choisir: </h2>'
+    var t =  `<h2> Gain maximum: ${dp[numberOfObjects][Capacity]} </h2>`;
+    t += '<h3> Les objets a choisir: ';
 
     for (let i=0; i<subsol[numberOfObjects][Capacity].length; i++)
-        t += `<button class="animated-solution" type="button">${subsol[numberOfObjects][Capacity][i]}</button>  `;
-    
+        t += `${subsol[numberOfObjects][Capacity][i]}, `;
+
+    t +=  '</h3>'
     document.getElementById('solution').innerHTML = t;
 
     console.log(dp);
