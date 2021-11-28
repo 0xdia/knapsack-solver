@@ -4,21 +4,21 @@ var numberOfObjects;
 function tableForItems() {
     numberOfObjects = document.getElementById('nbr_objects').value;
 
-    var tableHeader = '<table class="table-items" id="table">\
-                <tr>\
-                    <th scope="col">Objets</th>\
-                    <th scope="col"> Gain </th>\
-                    <th scope="col"> Poids </th>\
-                </tr>';
+    var tableHeader = '<table class="table-items" id="table" align="center">\
+                    <tr>\
+                        <th scope="col">Objets</th>\
+                        <th scope="col"> Gain </th>\
+                        <th scope="col"> Poids </th>\
+                    </tr>';
 
     var tableBody = '';
 
     for (var i=0; i<numberOfObjects; i++) {
-        tableBody += '<tbody><tr><td>' + i+1 + '</td>';
+        tableBody += '<tbody><tr><td>' + i + '</td>';
         for (var j=0; j<2; j++) {
             tableBody += '<td>\
-                        <input type="number" placeholder="value"\
-                    </td>';
+                        <input class="item" type="number" placeholder="value"\
+                        </td>';
         }
         tableBody += '</tr></tbody>\n';
     }
@@ -33,7 +33,7 @@ function prepareSecondSection() {
 
     if (Capacity>=0 && numberOfObjects>=0) {
         tableForItems();
-        document.getElementById('solve-button').innerHTML = '<button type="button" onclick="solve();"> Resoudre </button>';
+        document.getElementById('solve-button').innerHTML = '<br><br> <button class="solve" type="button" onclick="solve();"> Resoudre </button>';
     } else {
         document.getElementById('table-objects').innerHTML = '';
         document.getElementById('solve-button').innerHTML = '';
