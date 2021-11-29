@@ -55,22 +55,8 @@ function solve() {
 }
 
 function knapsack(Capacity, weights, profits) {
-/*     var animtableHeader = '<table class="animated-solution" id="table" align="center"><tr>\
-                        <th scope="col"></th>';
-
-    for (let i=0; i<=Capacity; i++)
-        animtableHeader += `<th scope="col">${i}</th>`
-    animtableHeader += '</tr>';
-
-    var tableBody = '';
-    var animtableFooter = '</table>' */
-
-
     var dp = [];
     var subsol = [];
-    
-    console.log('capacity: ', Capacity);
-    console.log('num ', numberOfObjects);
 
     for (let i=0; i<=numberOfObjects; i++) {
         dp.push([]);
@@ -84,8 +70,6 @@ function knapsack(Capacity, weights, profits) {
             subsol[i].push([]);
     }
 
-    console.log(dp); console.log(subsol);
-
     for (let i=0; i<=numberOfObjects; i++) {
         for (let j=0; j<=Capacity; j++) {
             if (i===0 || j===0)
@@ -93,6 +77,7 @@ function knapsack(Capacity, weights, profits) {
 
             if (j < weights[i]) {
                 dp[i][j] = dp[i-1][j];
+                subsol[i][j] = subsol[i-1][j].slice();
             }
             else {
                 if (dp[i-1][j] < dp[i-1][j-weights[i]] + profits[i]) {
@@ -102,21 +87,19 @@ function knapsack(Capacity, weights, profits) {
                 }
                 else {
                     dp[i][j] = dp[i-1][j];
+                    subsol[i][j] = subsol[i-1][j].slice();
                 }
             }
         }
     }
 
     var t =  `<h2> Gain maximum: ${dp[numberOfObjects][Capacity]} </h2>`;
-    t += '<h3> Les objets a choisir: ';
-
-    for (let i=0; i<subsol[numberOfObjects][Capacity].length; i++)
-        t += `${subsol[numberOfObjects][Capacity][i]}, `;
-
-    t +=  '</h3>'
+    t += `<h3> Les objets a choisir: ${subsol[numberOfObjects][Capacity]} </h3>`;
+ 
     document.getElementById('solution').innerHTML = t;
 
-    console.log(dp);
-    console.log(subsol);
-    console.log("solution: ", dp[numberOfObjects][Capacity]);
+    // console.log(dp);
+    // console.log('subsol ', subsol);
+    // console.log('list ', subsol[numberOfObjects][Capacity]);
+    // console.log("solution: ", dp[numberOfObjects][Capacity]);
 }
