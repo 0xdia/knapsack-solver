@@ -93,8 +93,16 @@ function knapsack(Capacity, weights, profits) {
         }
     }
 
+    var sum_weights = 0;
+    var sum_profits = 0;
+    for (let i=0; i<subsol[numberOfObjects][Capacity].length; i++) {
+        sum_weights += weights[subsol[numberOfObjects][Capacity][i]];
+        sum_profits += profits[subsol[numberOfObjects][Capacity][i]];
+    }
+
     var t =  `<h2> Gain maximum: ${dp[numberOfObjects][Capacity]} </h2>`;
     t += `<h3> Les objets a choisir: ${subsol[numberOfObjects][Capacity]} </h3>`;
+    t += `<h3>(poids total = ${sum_weights}, gain total = ${sum_profits})</h3>`;
  
     document.getElementById('solution').innerHTML = t;
 
